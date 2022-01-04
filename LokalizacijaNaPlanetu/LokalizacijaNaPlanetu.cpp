@@ -23,7 +23,7 @@ bool lineSegmentsIntersects(lineSegment d1, lineSegment d2, Point2D* Intersectio
 int main()
 {
     std::vector<std::vector<Point2D>> Area;
-    std::vector<bool> foundRobot;
+    std::vector<int> foundRobot;
 
     int minX = 10000;
     int minY = 10000;
@@ -110,7 +110,7 @@ int main()
                 minY = Area[i][j].y;
             }
         }
-        foundRobot.push_back(false);
+        foundRobot.push_back(0);
     }
 
     /*
@@ -200,7 +200,7 @@ int main()
                 if (Area_IntersectionPoints_Size % 2 != 0)
                 {
                     std::cout << "Robot is in area O" << i + 1 << "!\n";
-                    foundRobot[i] = true;
+                    foundRobot[i] += 1;
                 }
             }
         }
@@ -208,9 +208,9 @@ int main()
         foundInAllAreas = true;
         for (int i = 0; i < foundRobot.size(); i++)
         {
-            foundInAllAreas &= foundRobot[i];
-            std::cout << "found robot in O" << i << ": " << foundRobot[i] << " | ";
-            std::cout << "found in all areas: " << foundInAllAreas << "\n";
+            foundInAllAreas &= (foundRobot[i] > 0);
+            std::cout << "found robot in O" << i + 1 << ": " << foundRobot[i] << "x\n";
+            //std::cout << "found in all areas: " << foundInAllAreas << "\n";
         }
     }
 
