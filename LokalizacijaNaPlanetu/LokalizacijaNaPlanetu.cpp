@@ -215,6 +215,10 @@ int main()
     }
 
     std::cout << "\nNumber of attempts needed to find robot in all segments: " << atempts << "\n\n";
+
+    std::cout << "\nPress any key to continue...\n";
+    std::cin.get();
+
 }
 
 bool lineSegmentsIntersects(lineSegment d1, lineSegment d2, Point2D *IntersectionPoint)
